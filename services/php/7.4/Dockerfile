@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends  \
     libyaml-dev \
     libzip-dev \
     zip \
-    zlib1g-dev \
+    zlib1g-dev
 
 RUN docker-php-ext-install opcache \
     && docker-php-ext-install bcmath \
