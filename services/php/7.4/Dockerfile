@@ -1,5 +1,8 @@
 FROM php:7.4-fpm
 
+ARG USER_ID
+ARG GROUP_ID
+
 RUN apt-get update && apt-get install -y --no-install-recommends  \
     cron \
     curl \
@@ -40,6 +43,12 @@ RUN docker-php-ext-install opcache \
     && docker-php-ext-install intl
 
 RUN pecl install yaml && docker-php-ext-enable yaml
+
+# Composer setup
+RUN curl -sS https://getcomposer.org/installer -O - -q \
+    | php -- --install-dir=/usr/local/bin --filename=composer --quiet
+
+USER "${USER_ID}:${GROUP_ID}"
 
 WORKDIR /var/www
 
