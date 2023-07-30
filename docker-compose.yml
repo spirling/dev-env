@@ -12,6 +12,8 @@ services:
     image: nginx
     volumes:
       - "/var/www:/var/www"
+      - "./config/nginx/conf.d:/etc/nginx/conf.d"
+      - "./log/nginx:/var/log/nginx"
     ports:
       - "80:80"
 
