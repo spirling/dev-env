@@ -21,6 +21,9 @@ services:
   dev_mysql_57:
     container_name: container_name
     image: mysql:5.7
+    volumes:
+      - "./data/mysql/5.7:/var/lib/mysql"
+      - "./log/mysql/5.7:/var/log/mysql"
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       TZ: "Europe/Kiev"
