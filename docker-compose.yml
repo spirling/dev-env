@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  dev_php_74:
+    container_name: dev_php_74
+    image: php:7.4-fpm
+    volumes:
+      - "/var/www:/var/www"
+
+  dev_webserver:
+    container_name: dev_webserver
+    image: nginx
+    volumes:
+      - "/var/www:/var/www"
+    ports:
+      - "80:80"
+
+  dev_mysql_57:
+    container_name: container_name
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      TZ: "Europe/Kiev"
+    ports:
+      - "3306:3306"
