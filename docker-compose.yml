@@ -3,7 +3,8 @@ version: "3.9"
 services:
   dev_php_74:
     container_name: dev_php_74
-    image: php:7.4-fpm
+    build:
+      context: "./services/php/7.4"
     volumes:
       - "/var/www:/var/www"
 
